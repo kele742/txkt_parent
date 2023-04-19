@@ -31,7 +31,7 @@ public class CodeGet {
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl("jdbc:mysql://localhost:3306/glkt_vod");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("xxy0605");
         dsc.setDbType(DbType.MYSQL);
@@ -40,7 +40,7 @@ public class CodeGet {
         // 4、包配置
         PackageConfig pc = new PackageConfig();
         //com.xxy.txkt.vod
-        pc.setParent("com.xxy.txkt");
+        pc.setParent("com.txkt");
         pc.setModuleName("vod"); //模块名
 
         pc.setController("controller");

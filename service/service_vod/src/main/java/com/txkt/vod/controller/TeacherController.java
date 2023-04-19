@@ -1,7 +1,7 @@
-package com.xxy.txkt.vod.controller;
+package com.txkt.vod.controller;
 
 
-import com.xxy.txkt.vod.service.TeacherService;
+import com.txkt.vod.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 

@@ -1,8 +1,8 @@
-package com.xxy.txkt.vod.service.impl;
+package com.txkt.vod.service.impl;
 
 import com.txkt.ggkt.model.vod.Teacher;
-import com.xxy.txkt.vod.mapper.TeacherMapper;
-import com.xxy.txkt.vod.service.TeacherService;
+import com.txkt.vod.mapper.TeacherMapper;
+import com.txkt.vod.service.TeacherService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.xxy.txkt.vod.mapper;
+package com.txkt.vod.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.txkt.ggkt.model.vod.Teacher;

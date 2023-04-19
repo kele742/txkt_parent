@@ -1,4 +1,4 @@
-package com.xxy.txkt.vod.service;
+package com.txkt.vod.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.txkt.ggkt.model.vod.Teacher;
