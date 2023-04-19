@@ -1,4 +1,4 @@
-package com.atguigu;
+package com.txkt;
 
 
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -21,26 +21,28 @@ public class CodeGet {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         //gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setOutputDir("C:\\Users\\zewan\\Desktop\\guli\\demo_parent\\service\\service_hosp"+"/src/main/java");//有问题
+        gc.setOutputDir("D:\\eclipse\\demo\\ggkt_parent\\service\\service_vod"+"/src/main/java");
 
         gc.setServiceName("%sService");	//去掉Service接口的首字母I
-        gc.setAuthor("atguigu");
+        gc.setAuthor("xxy");
         gc.setOpen(false);
         mpg.setGlobalConfig(gc);
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/yygh_hosp");
+        dsc.setUrl("jdbc:mysql://localhost:3306/glkt_vod");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("xxy0605");
         dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("hosp"); //模块名
-        pc.setParent("com.atguigu.yygh");
+        //com.xxy.txkt.vod
+        pc.setParent("com.xxy.txkt");
+        pc.setModuleName("vod"); //模块名
+
         pc.setController("controller");
         pc.setEntity("entity");
         pc.setService("service");
@@ -50,7 +52,7 @@ public class CodeGet {
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
 
-        strategy.setInclude("hospital_set");
+        strategy.setInclude("teacher");
 
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
 
