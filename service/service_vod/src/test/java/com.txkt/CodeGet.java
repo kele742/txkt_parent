@@ -31,7 +31,7 @@ public class CodeGet {
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl("jdbc:mysql://localhost:3306/glkt_vod");
-        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("xxy0605");
         dsc.setDbType(DbType.MYSQL);
