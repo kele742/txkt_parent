@@ -1,0 +1,9 @@
+package com.txkt.vod.config;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@MapperScan("com.txkt.vod.mapper")
+public class VodConfig {
+}
