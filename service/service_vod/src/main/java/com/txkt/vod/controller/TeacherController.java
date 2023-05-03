@@ -2,6 +2,7 @@ package com.txkt.vod.controller;
 
 
 import com.txkt.ggkt.model.vod.Teacher;
+import com.txkt.result.Result;
 import com.txkt.vod.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,19 +29,29 @@ public class TeacherController {
 
     //http://localhost:8301/admin/vod/teacher/findAll
     //1.查询所有讲师
+//    @GetMapping("findAll")
+//    public List<Teacher> findAllTeacher(){
+//        //调用service方法
+//        List<Teacher> list = teacherService.list();
+//        return list;
+//    }
     @GetMapping("findAll")
-    public List<Teacher> findAllTeacher(){
+    public Result findAllTeacher(){
         //调用service方法
         List<Teacher> list = teacherService.list();
-        return list;
+        return Result.ok(list);
     }
 
     //remove/1
     //2、逻辑删除讲师
     @DeleteMapping("remove/{id}")
-    public boolean removeTeacher(@PathVariable Long id){
+    public Result removeTeacher(@PathVariable Long id){
         boolean isSuccess = teacherService.removeById(id);
-        return isSuccess;
+        if(isSuccess){
+            return Result.ok(null);
+        }else {
+            return Result.fail(null);
+        }
     }
 }
 
