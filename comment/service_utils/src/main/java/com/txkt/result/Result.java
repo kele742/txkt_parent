@@ -52,6 +52,14 @@ public class Result<T> {
         return result;
     }
 
+    public Result<T> message(String msg){
+        this.setMessage(msg);
+        return this;
+    }
+    public Result<T> code(Integer code){
+        this.setCode(code);
+        return this;
+    }
 
 
 }

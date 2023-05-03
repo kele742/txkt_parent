@@ -39,7 +39,7 @@ public class TeacherController {
     public Result findAllTeacher(){
         //调用service方法
         List<Teacher> list = teacherService.list();
-        return Result.ok(list);
+        return Result.ok(list).message("查询数据成功");
     }
 
     //remove/1
