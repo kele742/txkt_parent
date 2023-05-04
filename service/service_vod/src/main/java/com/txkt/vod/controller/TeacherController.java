@@ -1,10 +1,14 @@
 package com.txkt.vod.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.txkt.ggkt.model.vod.Teacher;
+import com.txkt.ggkt.vo.vod.TeacherQueryVo;
 import com.txkt.result.Result;
 import com.txkt.vod.service.TeacherService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -53,5 +57,47 @@ public class TeacherController {
             return Result.fail(null);
         }
     }
+
+    //条件查询分页
+    @GetMapping("findQueryPage/{current}/{limit}")
+    public Result findPage(@PathVariable long current,
+                           @PathVariable long limit,
+                           TeacherQueryVo teacherQueryVo){
+        //创建分页对象
+        Page<Teacher> pageParam = new Page<>(current,limit);
+        //判断teacherQueryVo是否为空
+        if(teacherQueryVo == null){//查询全部
+            IPage<Teacher> pageModel = teacherService.page(pageParam,null);
+            return Result.ok(pageModel);
+        }else {
+            //获取条件值，进行非空判断,条件封装
+            String name = teacherQueryVo.getName();
+            Integer level = teacherQueryVo.getLevel();
+            String joinDateBegin = teacherQueryVo.getJoinDateBegin();
+            String joinDateEnd = teacherQueryVo.getJoinDateEnd();
+            QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
+            if(!StringUtils.isEmpty(name)){
+                wrapper.like("name",name);
+            }
+            if(!StringUtils.isEmpty(level)){
+                wrapper.eq("level",level);
+            }
+            if(!StringUtils.isEmpty(joinDateBegin)){
+                wrapper.ge("join_date",joinDateBegin);
+            }
+            if(!StringUtils.isEmpty(joinDateEnd)){
+                wrapper.le("join_date",joinDateEnd);
+            }
+            //调用方法分页查询
+            IPage<Teacher> pageModel = teacherService.page(pageParam, wrapper);
+            //返回
+            return Result.ok(pageModel);
+
+        }
+    }
+
+
+
+
 }
 
