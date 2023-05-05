@@ -96,9 +96,34 @@ public class TeacherController {
 
         }
     }
+    //4 添加讲师
+    @PostMapping("saveTeacher")
+    public Result saveTeacher(@RequestBody Teacher teacher){
+        boolean isSuccess = teacherService.save(teacher);
+        if(isSuccess){
+            return Result.ok(null);
+        }else {
+            return Result.fail(null);
+        }
+    }
 
 
+    //5 修改-根据id查询
+    @GetMapping("getTeacher/{id}")
+    public Result getTeacher(@PathVariable Long id){
+        Teacher teacher = teacherService.getById(id);
+        return Result.ok(teacher);
+    }
 
-
+    //6 修改-最终实现接口
+    @PostMapping("updateTeacher")
+    public Result updateTeacher(@RequestBody Teacher teacher){
+        boolean isSuccess = teacherService.updateById(teacher);
+        if(isSuccess){
+            return Result.ok(null);
+        }else {
+            return Result.fail(null);
+        }
+    }
 }
 
