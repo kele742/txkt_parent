@@ -59,10 +59,11 @@ public class TeacherController {
     }
 
     //条件查询分页
-    @GetMapping("findQueryPage/{current}/{limit}")
+    @PostMapping("findQueryPage/{current}/{limit}")
     public Result findPage(@PathVariable long current,
                            @PathVariable long limit,
-                           TeacherQueryVo teacherQueryVo){
+                           //提交参数以json格式提交，然后把参数封装到对象中去，条件值可以为空
+                           @RequestBody(required = false) TeacherQueryVo teacherQueryVo){
         //创建分页对象
         Page<Teacher> pageParam = new Page<>(current,limit);
         //判断teacherQueryVo是否为空
