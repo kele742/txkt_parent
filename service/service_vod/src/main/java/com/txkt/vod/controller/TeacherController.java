@@ -12,6 +12,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -119,6 +120,19 @@ public class TeacherController {
     @PostMapping("updateTeacher")
     public Result updateTeacher(@RequestBody Teacher teacher){
         boolean isSuccess = teacherService.updateById(teacher);
+        if(isSuccess){
+            return Result.ok(null);
+        }else {
+            return Result.fail(null);
+        }
+    }
+
+    //7、批量删除讲师
+    //json数组格式[1,2,3]
+    @DeleteMapping("removeBatch")
+    public Result removeBatch(@RequestBody List<Long> idList){
+
+        boolean isSuccess = teacherService.removeByIds(idList);
         if(isSuccess){
             return Result.ok(null);
         }else {
