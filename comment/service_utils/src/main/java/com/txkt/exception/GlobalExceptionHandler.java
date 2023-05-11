@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
     }
 
     //特定异常处理ArithmeticException
-    @ExceptionHandler(ArithmeticException.class)
+    @ExceptionHandler(ArithmeticException.class)//需要处理什么方法就在括号里面加
     @ResponseBody
     public Result error(ArithmeticException e){
         e.printStackTrace();
