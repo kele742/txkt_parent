@@ -7,11 +7,8 @@ import lombok.Data;
 public class Result<T> {
 
     private Integer code;//状态码
-
     private String message;//返回状态信息（成功失败）
-
     private T data;//返回数据
-
     public Result(){
 
     }
