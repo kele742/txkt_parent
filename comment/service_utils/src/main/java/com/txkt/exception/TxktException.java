@@ -10,6 +10,4 @@ import lombok.NoArgsConstructor;
 public class TxktException extends RuntimeException{
     private Integer code;
     private String msg;
-
-
 }
